@@ -1,17 +1,11 @@
-import express from 'express'
+import express from "express";
+import authRouter from "./routes/auth";
+const app = express();
 
-const app = express()
+app.use("/auth", authRouter);
 
-const port = process.env.PORT || 8989
-app.get('/',(request,response)=>
-{
-response.send("<h1>Hello this is our app</h1>")
-})
-app.get('/login',(request,response)=>
-    {
-    response.send("<h1>Login page</h1>")
-    })
+const port = process.env.PORT || 8989;
+
 app.listen(port, () => {
-
-    console.log('The app is running on port ' + port)
-})
+  console.log("The app runs in port ", port);
+});
